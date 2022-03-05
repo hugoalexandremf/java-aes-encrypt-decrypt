@@ -6,7 +6,10 @@ public class Main {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        Crypto.encrypt("test");
+        String cipherText = Crypto.encrypt("test");
+        LOG.info("cipherText: " + cipherText);
+        String plainText = Crypto.decrypt(cipherText);
+        LOG.info("plainText: " + plainText);
     }
 
 }
