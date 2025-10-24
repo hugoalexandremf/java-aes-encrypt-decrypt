@@ -11,7 +11,7 @@ import java.util.Base64;
 
 public class Crypto {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Crypto.class);
+    private static final Logger logger = LoggerFactory.getLogger(Crypto.class);
 
     public static String encrypt(String plainText) {
         String cipherText = "";
@@ -38,7 +38,7 @@ public class Crypto {
 
             cipherText = new String(Base64.getEncoder().encode(ivWithCipherTextByteArray));
         } catch (Exception e) {
-            LOG.info("Exception", e);
+            logger.info("Exception", e);
         }
 
         return cipherText;
@@ -65,7 +65,7 @@ public class Crypto {
             cipher.init(Cipher.DECRYPT_MODE, keyspec, iv);
             plainText = new String(cipher.doFinal(cipherTextByteArray));
         } catch (Exception e) {
-            LOG.info("Exception", e);
+            logger.info("Exception", e);
         }
 
         return plainText;
